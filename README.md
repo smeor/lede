@@ -69,6 +69,19 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make -j1 V=s
 ```bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make -j$(($(nproc) + 1)) V=s
 ```
+## luci-app-alist
+1、编译环境安装 fuse 开发包
+ubuntu/debian:
+
+sudo apt update
+sudo apt install libfuse-dev
+redhat:
+
+sudo yum install fuse-devel
+2、需要 golang 1.19.x 版本（在 ./scripts/feeds install -a 操作之后更换 golang 版本）
+更换 golang 版本
+rm -rf feeds/packages/lang/golang
+svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 
 特别提示：
 ------
